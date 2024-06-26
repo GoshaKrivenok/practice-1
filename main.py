@@ -57,7 +57,7 @@ def find_duplicates(folders):
     hashes_paths = []  # Список для хранения хэшей и путей к изображениям
 
     with ProcessPoolExecutor() as executor:  # Создание пула процессов
-        futures = {executor.submit(process_folder, folder): folder for folder in folders}  # Отправка задач в пул процессов
+        futures = {executor.submit(process_folder, folder): folder for folder in folders}  # Отправка задач в пул
         for future in as_completed(futures):  # Обработка завершенных задач
             folder = futures[future]  # Получение папки, связанной с задачей
             try:
